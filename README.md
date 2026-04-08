@@ -57,7 +57,7 @@ how i solved - i learned how a push button works and how a pull up and pull down
 --------------------------------------------------------------------------------------------------------
 section B
 --------------------------------------------------------------------------------------------------------
-option 1 - Smart Distance Alert System
+**option 1 - Smart Distance Alert System**
 
 i chose this roject because i wanted to learn about ultrasonic sensor and how to use a buzzer and how to use that trig and echo an dthen i wanted ot even once try map function so ya i just did option 1.
 here in this project this works as a alarm system or uk a alert system . if an object comes closer the ultrasonic sensor it will on the 5 leds depending on the distance if it is very close all 5 get on 
@@ -77,7 +77,7 @@ how i solved - i learned about how to use a buzzer and ultrasonic form the inter
 
 --------------------------------------------------------------------------------------------------------
 
-option 2 -Morse Code Transmitter
+**option 2 -Morse Code Transmitter**
 i chose this because i wanted to learn how to take inputs in that serial monitor i jsut know how to print till no wbut idk how ot use the serial monitor for tkaing inputs and all and the morse code name only looked intresting so ya i jsut did this
 
 this project jsut converts ur sentence or letters or ur words into morse code wiht the help of a simple led bllinking in a prticular time intervals as a morsce code should be lile
@@ -89,5 +89,9 @@ components used -
 4. 123 ohm resistor (to protect leds form drawing to much current n not let them burn out )
 5.jumperwires(for connections)
 
-challenges i faced
+challenges i faced - i didnt knw how to take input form the user into serial monitor in the c++ liek basically in the arudino ide .
+how i solved - i solved my going through google how ot take inpouts and i learne dhow to make stings and all in cpp and thne i for to know . and i got to know different baud rates in arduino ide serial monitor and put more sppeed baud rate then the usual 9600 and implemeneted it in code and solved this problem.
+
+
+thank you : )
 
