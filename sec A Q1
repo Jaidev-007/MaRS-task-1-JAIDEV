@@ -1,1 +1,53 @@
+tinkercad link ->  https://www.tinkercad.com/things/2clOaVxGRn9-q11121
 
+video simulation drive link -> 
+
+code ->
+
+// C++ code
+//
+//for fun puttin bahubali names as the no of milliseconds leds need to be on and off
+
+const unsigned long bahu=1500;
+const unsigned long balla=1000;
+const unsigned long kattappa=500;
+
+//declaring those  vaiables to store 1 and 0 , i.e, on and off
+unsigned long time1 = 0;
+unsigned long time2 = 0;
+unsigned long time3 = 0;
+
+int state1=0;
+int state2=0;
+int state3=0;
+void setup()
+{
+ // Set pins 8, 7, and 6 as output pins (for LEDs)
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+  
+}
+
+void loop()
+{
+  // get the current time since the program started (in ms)
+  unsigned long kalakeya =millis();
+  if(kalakeya-time1>=bahu){
+    time1=kalakeya;//updating the last on or off time
+    state1=!state1;//changign the state (on to off and vice versa)
+    digitalWrite(8, state1);//applying the state to the led 
+  }
+  //similarly for other 2 iff loops using 1000 and 500 ms as thier time interval to on and off
+  if(kalakeya-time2>=balla){
+    time2=kalakeya;
+    state2=!state2;
+    digitalWrite(7, state2);
+  }
+  if(kalakeya-time3>=kattappa){
+    time3=kalakeya;
+    state3=!state3;
+    digitalWrite(6, state3);
+  }
+
+}
