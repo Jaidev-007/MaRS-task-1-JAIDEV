@@ -1,0 +1,62 @@
+tinkercad link -> https://www.tinkercad.com/things/e7ZHI8nusHk-q21121
+
+drive video of simulation -> 
+
+code->
+
+// C++ code
+//
+// RGB pins and normal LED
+const int red=11;
+const int blue =10;
+const int green=9;
+const int led=2;
+// potentiometer pin
+const int wiper=A5;
+
+unsigned long prev=0; // stores last blink time
+int ledstate=0; // LED ON/OFF state
+
+void setup()
+{
+	//setting pins as output
+  pinMode(red,OUTPUT);
+  pinMode(blue,OUTPUT);
+  pinMode(green,OUTPUT);
+  pinMode(led,OUTPUT);
+  /*no need to declare them as input,
+  as default aruino makes pins INPUT default{ i read in that arduino forum :) }*/
+  
+}
+
+void loop()
+{
+ int potval = analogRead(wiper);// read knob value (0–1023)
+   // RGB color control based on range(using map)
+  if (potval <=341){
+    analogWrite(red ,map(potval,0,341,0,255));
+    analogWrite(blue ,map(potval,0,341,255,0));
+	analogWrite(green ,0);            
+  }
+
+   else if(potval<=682){
+    analogWrite(blue ,map(potval,341,682,0,255));
+    analogWrite(green ,map(potval,341,682,255,0));
+	analogWrite(red ,0);         
+	}
+                
+	else if(potval<=1023){
+      analogWrite(green ,map(potval,682,1023,0,255));
+      analogWrite(red ,map(potval,682,1023,255,0));
+      analogWrite(blue ,0);         
+	}
+     // blink speed depends on knob values              
+	unsigned long blinktime= map(potval,0,1023,123,4567);
+    // non-blocking blink as millis is used
+	unsigned long present = millis();
+	if(present-prev>=blinktime){
+      prev=present;
+      ledstate=!ledstate;
+      digitalWrite(led,ledstate);
+	}
+}
