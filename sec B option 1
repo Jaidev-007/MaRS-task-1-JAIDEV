@@ -1,0 +1,72 @@
+tinkercad link -> https://www.tinkercad.com/things/b6FyPstVsCe-option1-1121
+
+drive video link of simulation->
+
+code ->
+
+// C++ code 
+//
+//giving pins the names of the respective component connected to that pin
+const int trig = 3;
+const int echo = 2;
+const int buzzer = 7;
+const int led1 = 12;
+const int led2 = 11;
+const int led3 = 10;
+const int led4 = 9;
+const int led5 = 8;
+
+long duration;//time taken for echo to return
+float distance;//distance which is calculated
+
+void setup()
+{
+  //setting up pins and serial monitoe
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop()
+{
+  // sending a short pulse to trigger the sensor
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);// small gap just to be safe
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);// 10µs pulse to start measurement
+  digitalWrite(trig, LOW);
+  
+  // reading how long the echo pin stays HIGH
+  duration = pulseIn(echo, HIGH);
+  distance = (duration * 0.034) / 2;//calculating distance in cm
+
+  //just limiting the distances for fun
+  if (distance > 200) distance = 200;//max
+  if (distance < 3) distance = 3;//min
+
+  Serial.println(distance);
+
+  int level = 0;// deciding how close the object is
+  if (distance <= 20) level = 5;//very closeee
+  else if (distance <= 50) level = 4;
+  else if (distance <= 100) level = 3;
+  else if (distance <= 150) level = 2;
+  else level = 1;//farr
+	//turnign on LEDs one by one when object gets closer
+  digitalWrite(led1, level >= 1);
+  digitalWrite(led2, level >= 2);
+  digitalWrite(led3, level >= 3);
+  digitalWrite(led4, level >= 4);
+  digitalWrite(led5, level >= 5);
+// buzzer only turns ON when object is VERY close
+  if(level == 5) digitalWrite(buzzer, HIGH); 
+  else digitalWrite(buzzer, LOW);
+
+  delay(50); // small delay to avoid too fast readings 
+}
