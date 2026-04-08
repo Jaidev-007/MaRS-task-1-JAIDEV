@@ -59,7 +59,9 @@ section B
 --------------------------------------------------------------------------------------------------------
 option 1 - Smart Distance Alert System
 
-here in this project this works as a alarm system or uk a alert system . if an object comes closer this 
+i chose this roject because i wanted to learn about ultrasonic sensor and how to use a buzzer and how to use that trig and echo an dthen i wanted ot even once try map function so ya i just did option 1.
+here in this project this works as a alarm system or uk a alert system . if an object comes closer the ultrasonic sensor it will on the 5 leds depending on the distance if it is very close all 5 get on 
+and then even the buzzer gets on and if its an other distance buzzer wont go on but maybe few leeds depending on the lvl of distance they are at.
 
 
 components used -
@@ -70,13 +72,22 @@ components used -
 5.jumperwires(for connections)
 6.buzzer( to make sound when object is too close)
 
+challenges faced - i didnt know how to use a buzzer and a ultrasonic sensor and i dindt know how to use that trig and echo .
+how i solved - i learned about how to use a buzzer and ultrasonic form the internet and implemented in on the code . like it wasnt much hard i already learned how ot code in sec A so ya
+
 --------------------------------------------------------------------------------------------------------
 
-option 2 -
+option 2 -Morse Code Transmitter
+i chose this because i wanted to learn how to take inputs in that serial monitor i jsut know how to print till no wbut idk how ot use the serial monitor for tkaing inputs and all and the morse code name only looked intresting so ya i jsut did this
+
+this project jsut converts ur sentence or letters or ur words into morse code wiht the help of a simple led bllinking in a prticular time intervals as a morsce code should be lile
+
 components used -
 1.arduino uno (microcontroller which is basically brain of the project here)
 2.breadboard (to make connections)
 3. 1 x LED(to lit up and do the morse code )
 4. 123 ohm resistor (to protect leds form drawing to much current n not let them burn out )
 5.jumperwires(for connections)
+
+challenges i faced
 
