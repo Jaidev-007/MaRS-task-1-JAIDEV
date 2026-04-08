@@ -1,0 +1,64 @@
+tinker cad link ->
+
+simulaion video drive file link ->
+
+code->
+
+// C++ code
+//
+const int button = 7; //ronaldo for a reason ;)
+const int led = 9 ;
+
+void setup()
+{
+  pinMode(led,OUTPUT);
+  pinMode(button, INPUT);
+  randomSeed(analogRead(A3));
+  Serial.begin(115200);
+}
+void loop()
+{
+  unsigned long delaytime=random(2345,5678);
+  unsigned long waititme =millis();
+  // keep looping until the random waiting time is over
+  while(millis()-waititme < delaytime){
+     // check if the button is pressed during the waiting period{ benifits of learning millis :)  }
+    if (digitalRead(button) == HIGH) {
+      //if user pressed too early(before the light is on)
+      Serial.println(" Don't press before the lights even get on :/ (Cheating ???).");
+      Serial.println("lets start again.");
+      delay(1534);// small delay so user can read message
+		
+      return;//starting again 
+    }
+  }
+  
+  digitalWrite(led,HIGH);
+  unsigned long dhurandhar =millis();//time when the light is on
+  while(digitalRead(button)==LOW){
+    //  https://tenor.com/bItJt.gif
+    //
+    //
+    // please copy this link & open in your browser ;)
+  }
+  
+  unsigned long dhurandhar_revenge = millis();// time when button is pressed
+  digitalWrite(led,LOW);
+  unsigned long reactiontime =dhurandhar_revenge - dhurandhar; //calculating ur reaction time
+  
+  Serial.print("your reaction time is : ");
+  Serial.print(reactiontime);
+  Serial.println("ms");
+
+   // check performance based on reaction time
+  if( reactiontime< 150)Serial.println(" your reaction speed is gooooood ^_^ ");
+  else if(reactiontime < 200)Serial.println(" your reaction speed is decent : ) ");
+   else if(reactiontime < 300)Serial.println(" your reaction speed is just average  =.=");
+    else{
+    Serial.println(" it isnt even reaciton speed anymore, ");
+    Serial.println(" it is just a normal response :/");
+  }
+    
+    delay(2111);// wait before starting next round
+    Serial.println("be ready for the next light ");
+}
