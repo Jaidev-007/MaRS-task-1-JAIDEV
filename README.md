@@ -60,3 +60,23 @@ section B
 option 1 - Smart Distance Alert System
 
 here in this project this works as a alarm system or uk a alert system . if an object comes closer this 
+
+
+components used -
+1.arduino uno (microcontroller which is basically brain of the project here)
+2.breadboard (to make connections)
+3. 5 x LED(to lit up at different levels )
+4. 6 x 123 ohm resistor (to protect leds form drawing to much current n not let them burn out and one for buzzer jsut to limit current flow )
+5.jumperwires(for connections)
+6.buzzer( to make sound when object is too close)
+
+--------------------------------------------------------------------------------------------------------
+
+option 2 -
+components used -
+1.arduino uno (microcontroller which is basically brain of the project here)
+2.breadboard (to make connections)
+3. 1 x LED(to lit up and do the morse code )
+4. 123 ohm resistor (to protect leds form drawing to much current n not let them burn out )
+5.jumperwires(for connections)
+
