@@ -1,0 +1,56 @@
+tinkercad linl -> https://www.tinkercad.com/things/eHoYAlrb59z-option-21121
+
+drive simulation link -> 
+
+code ->
+
+  // C++ code
+  //
+  //when ppl of mahishmathi communicate with morsce code;
+  const int led=7;
+
+  const int jai_mahishmathi=250;//a unit time type of thingy
+
+  const String morsetable[26]= { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", 
+    ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", 
+    "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
+  };
+
+  void setup(){
+    //setting up led and a high speed baud rate for the serial monitor
+    pinMode(led,OUTPUT);
+    Serial.begin(115200);
+    Serial.println("send a message to Mahishmathi:");
+   }
+  void trig(int duration){
+    digitalWrite(led,HIGH);
+    delay(duration);
+
+    digitalWrite(led,LOW);
+    delay(jai_mahishmathi);//a unit gap btwn parts of the letter
+
+  }
+  void loop(){
+    if(Serial.available()>0){
+    char inchar = Serial.read();//reading input characters
+
+      if(inchar>='a' && inchar<='z'){ //converitng lowercase to upper  case using ascii
+        inchar=inchar-32;    // 'a' is 97 & 'A' is 65, so the diff is 32
+      }
+
+      if(inchar>='A' && inchar<='Z'){
+        int i = inchar- 'A';//taking index of the charachter to go search int he array 
+        //as A should be zero and so on to get to 26 letters in a array by accesing it indexes from 0-25
+        String morse = morsetable[i];
+
+        // to read each symbol (dot/dash) from morse string
+        for (int j=0;j<morse.length();j++){
+          if(morse[j]=='.') trig(jai_mahishmathi);//one unit on for dot and
+          else if(morse[j]=='-') trig(jai_mahishmathi*3);//3 units of time on for dash
+        }
+        delay(jai_mahishmathi*2);//standard delay of 2 units btwn letters
+      }
+      else if(inchar==' ') delay(jai_mahishmathi*7);
+      //standard time delay btwn words when space is given
+    }
+    }
